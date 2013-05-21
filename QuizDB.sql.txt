@@ -1,0 +1,363 @@
+-- phpMyAdmin SQL Dump
+-- version 3.4.5
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Feb 07, 2012 at 02:05 PM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `quiz`
+--
+CREATE DATABASE `quiz` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `quiz`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cauhoi`
+--
+
+CREATE TABLE IF NOT EXISTS `cauhoi` (
+  `idCauHoi` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tenCauHoi` text COLLATE utf8_unicode_ci NOT NULL COMMENT 'câu hỏi',
+  `idMonHoc` int(11) NOT NULL,
+  `a` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `b` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `c` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `d` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `e` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `dapAnDung` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `mucDo` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'trungBinh',
+  `trash` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idCauHoi`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=33 ;
+
+--
+-- Dumping data for table `cauhoi`
+--
+
+INSERT INTO `cauhoi` (`idCauHoi`, `tenCauHoi`, `idMonHoc`, `a`, `b`, `c`, `d`, `e`, `dapAnDung`, `mucDo`, `trash`) VALUES
+(1, 'Hệ điều hành là phần mềm?', 6, 'Luôn luôn phải có để máy tính hoạt động', 'Điều khiển thiết bị phần cứng', 'Quản lý và phân phối tài nguyên máy tính phục vụ cho các ứng dụng', '', '', 'c', 'trungBinh', 0),
+(2, 'Việc truyền thông số từ chương trình ứng dụng đến hệ điều hành có thể thực hiện\r\nbằng cách lưu thông số trong?', 6, 'Các thanh ghi và stack', 'Vùng nhớ trong bộ nhớ chính', 'Tất cả các câu trên đều đúng', '', '', 'c', 'trungBinh', 0),
+(3, 'Ưu điểm chính của Time-sharing system so với Multiprogrammed system?', 6, 'Chi phí quản lý các process nhỏ hơn', 'Thời gian đáp ứng (response time) nhỏ hơn', 'Tăng hiệu suất của CPU', '', '', 'b', 'trungBinh', 0),
+(4, 'Kỹ thuật Overlay được áp dụng khi?', 6, 'Không còn vùng nhớ để chạy chương trình', 'Chương trình có kích thước lớn hơn vùng nhớ', 'Chương trình có kích thước nhở hơn vùng nhớ', '', '', 'b', 'trungBinh', 0),
+(7, 'Khi bộ nhớ có hiện tượng phân mảnh (fragmentation) quá nhiều thì HĐH sẽ?', 6, 'Tiến hành thu gom những Hole nhỏ thành Hole lớn hơn', 'Loại bỏ bớt một số process', 'Treo máy', '', '', 'a', 'trungBinh', 0),
+(8, 'Một trang bộ nhớ được quản lý bởi?', 6, 'Một phần tử trong bản trang', 'PR (present bit)', 'PF (page frame number)', '', '', 'c', 'trungBinh', 0),
+(9, 'Trong kỹ thuật phân trang (Paging) khi bộ nhớ thực đầy thì HĐH sẽ?', 6, 'Tiến hành nạp lại các trang', 'Thực hiện chiến lược thay thế trang', 'Loại bỏ các trang bị lỗi', '', '', 'b', 'trungBinh', 0),
+(10, 'Process là gì?', 6, 'Một chương trình lưu trên đĩa', 'Một chương trình được nạp vào bộ nhớ', 'Một chương trình nạp vào bộ nhớ và đang được CPU thực thi', '', '', 'c', 'trungBinh', 0),
+(11, 'Trạng thái BLOCKED của một process là do?', 6, 'Đang chờ nhập xuất', 'Đang chờ một sự kiện nào đó chưa xảy ra', 'Cả 2 đều đúng', '', '', 'c', 'trungBinh', 0),
+(12, 'Hành động nào HĐH sẽ thực thi một process mới sinh ra?', 6, 'Cấp CPU ngay cho process', 'Tạo ngay khối PCB để quản lý process', 'Giao ngay các tài nguyên mà process cần', '', '', 'b', 'trungBinh', 0),
+(13, 'Độ ưu tiên của các process cho biết?', 6, 'Process sử dụng CPU nhiều hay ít', 'Process chiếm nhiều hay ít vùng nhớ', 'Tầm quan trọng của process', '', '', 'c', 'trungBinh', 0),
+(14, 'Khi một process chuẩn bị vào hay ra khỏi một vùng Critical Section thì phải?', 6, 'Xin phép HĐH', 'Phất cờ hiệu khi vào và trả khi ra', 'Cả hai ý trên', '', '', 'c', 'trungBinh', 0),
+(15, 'Hàng đợi dành cho các process xếp hàng chờ nhập xuất được gọi là?', 6, 'Busy-Waitting buffer', 'Ready queue', 'Waitting queue', '', '', 'b', 'trungBinh', 0),
+(16, 'Giải thuật nào sau đây gọi nhau?', 6, 'Giải thuật an toàn gọi giải thuật nhà băng', 'Giải thuật nhà băng gọi giải thuật an toàn', 'Hai giải thuật trên chạy độc lập', '', '', '', 'trungBinh', 0),
+(29, 'ádfasdf', 1, 'cádf', 'cádf', 'ádf', 'adsf', '', 'c', 'trungBinh', 0),
+(30, 'adf', 1, 'asdf', 'sadf', 'sadf', 'dsf', 'sdf', 'b', 'de', 0),
+(31, 'adf', 1, 'asdf', 'sadf', 'sadf', 'dsf', 'sdf', 'b', 'de', 0),
+(32, 'adf', 1, 'asdf', 'sadf', 'sadf', 'dsf', 'sdf', 'b', 'de', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `diem`
+--
+
+CREATE TABLE IF NOT EXISTS `diem` (
+  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `idMonHoc` int(11) NOT NULL,
+  `diemHeSo1` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'điểm',
+  `diemHeSo2` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'diem he so 2',
+  `diemThi` double DEFAULT NULL COMMENT 'diem thi',
+  `hocKy` tinyint(1) NOT NULL,
+  `namHoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`username`,`idMonHoc`,`hocKy`,`namHoc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `diem`
+--
+
+INSERT INTO `diem` (`username`, `idMonHoc`, `diemHeSo1`, `diemHeSo2`, `diemThi`, `hocKy`, `namHoc`) VALUES
+('admin', 6, '7', NULL, NULL, 1, '2012'),
+('baohieu', 1, '6', '8', 6, 1, '2011-2012'),
+('baohieu', 6, '6', NULL, NULL, 1, '2012'),
+('chien', 6, '6', '0', 0, 0, ''),
+('thilinh', 6, '1', NULL, NULL, 1, '2012'),
+('tinh', 6, '7', NULL, NULL, 1, '2012'),
+('tra', 6, '6', NULL, NULL, 1, '2012'),
+('trung', 6, '6', NULL, NULL, 1, '2012');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `giangvien`
+--
+
+CREATE TABLE IF NOT EXISTS `giangvien` (
+  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `idLop` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kiemtra`
+--
+
+CREATE TABLE IF NOT EXISTS `kiemtra` (
+  `idKiemTra` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ten` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `thoiGian` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `soCauHoi` tinyint(3) NOT NULL,
+  `dateStart` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `hourStart` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `dateEnd` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `hourEnd` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `idMonHoc` int(11) NOT NULL,
+  `heSo` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'he so cho bai kiem tra',
+  `exeKiemTra` tinyint(1) NOT NULL DEFAULT '0',
+  `status` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Chưa làm' COMMENT 'trang thai cua bai kiem tra ENABLE = dang trong thoi gian lam) DISABLE (ko lam)',
+  PRIMARY KEY (`idKiemTra`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `kiemtra`
+--
+
+INSERT INTO `kiemtra` (`idKiemTra`, `ten`, `thoiGian`, `soCauHoi`, `dateStart`, `hourStart`, `dateEnd`, `hourEnd`, `idMonHoc`, `heSo`, `exeKiemTra`, `status`) VALUES
+(1, 'Bài kiểm tra số 1 môn "Hệ Điều Hành"', '1', 20, '22/02/2012', '10h30', '07/02/2012', '23h30', 6, 0, 1, 'Đang làm'),
+(2, 'Bài kiểm tra số 2 Mon HDH', '90', 10, '26/01/2012', '10h30', '03/02/2012', '18h30', 6, 0, 0, 'chua lam'),
+(3, 'Bài kiểm tra số 3 Mon HDH', '90', 10, '26/01/2012', '10h30', '26/01/2012', '18h30', 6, 0, 1, 'chua lam'),
+(4, 'Bài kiểm tra số 1 Mon "Tin học đại cương', '90', 10, '28/01/2012', '10h30', '31/01/2012', '18h30', 1, 0, 0, 'chua lam'),
+(5, 'Bài kiểm tra số 2 Mon "Tin học đại cương', '90', 10, '28/01/2012', '10h30', '31/01/2012', '18h30', 1, 0, 0, 'chua lam');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kiemtra-cauhoi`
+--
+
+CREATE TABLE IF NOT EXISTS `kiemtra-cauhoi` (
+  `idCauHoi` int(11) NOT NULL,
+  `idKiemTra` int(11) NOT NULL,
+  PRIMARY KEY (`idCauHoi`,`idKiemTra`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `kiemtra-cauhoi`
+--
+
+INSERT INTO `kiemtra-cauhoi` (`idCauHoi`, `idKiemTra`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(10, 1),
+(30, 4),
+(32, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lop`
+--
+
+CREATE TABLE IF NOT EXISTS `lop` (
+  `id` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `tenLop` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT 'tên lớp',
+  `khoa` varchar(5) COLLATE utf8_unicode_ci NOT NULL COMMENT 'khóa học',
+  `trash` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `lop`
+--
+
+INSERT INTO `lop` (`id`, `tenLop`, `khoa`, `trash`) VALUES
+('CCT09A', 'CCT09A', '09', 0),
+('CCT09B', 'CCT09B', '09', 0),
+('CCT10A', 'CCT10A', '10', 0),
+('CCT10B', 'CCT10B', '10', 0),
+('CCT11A', 'CCT11A', '11', 0),
+('CCT11B', 'CCT11B', '11', 0),
+('DCT08A', 'DCT08A', '08', 0),
+('DCT08B', 'DCT08B', '08', 0),
+('DCT09A', 'DCT09A', '09', 0),
+('DCT09B', 'DCT09B', '09', 0),
+('DCT10A', 'DCT10A', '10', 0),
+('DCT10B', 'DCT10B', '10', 0),
+('DCT11A', 'DCT11A', '11', 0),
+('DCT11B', 'DCT11B', '11', 0),
+('dd', 'âfffsd', '5433', 0),
+('DST08', 'DST08', '08', 0),
+('DST09', 'DST09', '09', 0),
+('DST10', 'DST10', '10', 0),
+('DST11', 'DST11', '11', 0),
+('DTL10A', 'DTL10A', '10', 0),
+('DTL10B', 'DTL10B', '10', 0),
+('DTL11', 'DTL11', '11', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monhoc`
+--
+
+CREATE TABLE IF NOT EXISTS `monhoc` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tenMonHoc` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `trash` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `monhoc`
+--
+
+INSERT INTO `monhoc` (`id`, `tenMonHoc`, `trash`) VALUES
+(1, 'Tin học đại cương', 0),
+(2, 'Toán cao cấp 1', 0),
+(3, 'Vật lý đại cương 1', 0),
+(4, 'Toán cao cấp 2', 0),
+(5, 'Toán cao cấp 3', 0),
+(6, 'Hệ điều hành', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quanly`
+--
+
+CREATE TABLE IF NOT EXISTS `quanly` (
+  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `idLop` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `monHoc` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'môn học',
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sinhvien`
+--
+
+CREATE TABLE IF NOT EXISTS `sinhvien` (
+  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `idLop` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `sinhvien`
+--
+
+INSERT INTO `sinhvien` (`username`, `idLop`) VALUES
+('baohieu', 'DCT08B'),
+('chien', 'DCT08B'),
+('cuong', 'DCT08B'),
+('dien', 'DCT08B'),
+('dieu', 'DCT08B'),
+('din', 'DCT08B'),
+('llp', 'DCT08B');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sinhvien-kiemtra`
+--
+
+CREATE TABLE IF NOT EXISTS `sinhvien-kiemtra` (
+  `username` int(11) NOT NULL,
+  `idKiemTra` int(11) NOT NULL,
+  PRIMARY KEY (`username`,`idKiemTra`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `quyen` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `hoDem` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `ten` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `ngaySinh` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `trash` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='bang cac mon hoc';
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`username`, `password`, `quyen`, `hoDem`, `ten`, `email`, `ngaySinh`, `trash`) VALUES
+('admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'Võ Xuân', 'Hoan', 'voxuanhoan@gmail.com', '30/4/1990', 0),
+('baohieu', 'b43d99b07e0571c1123b72a9682221a5', 'sinhvien', 'Lâm Nguyễn Bảo', 'Hiếu', 'thuydieu@gmail.com', '06/05/1990', 0),
+('chien', '90a8db953336c8dabbcf48b1592a8c06', 'sinhvien', 'Trần Chinh', 'Chiến', 'tranchinhchien@gmail.com', '12/5/1990', 0),
+('cuong', 'cf4d87e50be6390ee9bd8ad6e7498cae', 'sinhvien', 'Phạm Văn', 'Cường', 'cuongphamvan@gmail.com', '15/6/89', 0),
+('dien', '28cb89895002ed9b4e5a756ae3b955cb', 'sinhvien', 'Nguyễn Tấn', 'Diện', 'nguyentandien@gmail.com', '02/12/1990', 0),
+('dieu', '3aad4f1b6e5cbf9ef891132ea0c91609', 'sinhvien', 'Phạm Thị Thuỳ', 'Diệu', 'thuydieu@gmail.com', '05/02/1990', 0),
+('din', 'f88639f78d5d6da6dfb8498fd5e763b1', 'sinhvien', 'Trương Văn ', 'Din', 'nguyentandien@gmail.com', '06/05/1990', 0),
+('dinh', '45eea262ec1d46cc5ee3817bc821e757', 'sinhvien', 'B', 'Đình', 'thuydieu@gmail.com', '09/04/1990', 0),
+('giang', '8905cc1433f2ca305e8479703e43f5ce', 'sinhvien', 'Vũ Hà Ngọc', 'Giang', 'nguyentandien@gmail.com', '09/05/1990', 0),
+('ha', '925cc8d2953eba624b2bfedf91a91613', 'sinhvien', 'Tô Thị Kim ', 'H', 'thuydieu@gmail.com', '09/06/1990', 0),
+('hanh', 'f26b42d052a17778feffe61e4e961c62', 'sinhvien', 'Vương Thị', 'Hạnh', 'thuydieu@gmail.com', '02/12/1990', 0),
+('ho', 'b5d9b59113086d3f9f9f108adaaa9ab5', 'sinhvien', 'L', 'Hổ', 'nguyentandien@gmail.com', '09/04/1990', 0),
+('hoan', '892e2583ccbd69cb1081fec008ce4735', 'sinhvien', 'V', 'Hoan', 'thuydieu@gmail.com', '09/05/1990', 0),
+('htrvy', 'htrvy', 'giaovien', 'Huỳnh Triệu', 'Vỹ', 'htrvy@yahoo.com', '12/8/85', 0),
+('hung', '546cb004524c792856b4bbba7192456b', 'sinhvien', 'Cao Thanh', 'H', 'nguyentandien@gmail.com', '09/06/1990', 0),
+('huong', '145a829dff80553d2747dfa14f44cc56', 'sinhvien', 'Đào Thị', 'Hương', 'thuydieu@gmail.com', '09/07/1990', 0),
+('lien', '9ca97e2902a4db25970aa595c2e441cf', 'sinhvien', 'Lê Thị Ngọc', 'Li', 'nguyentandien@gmail.com', '02/12/1990', 0),
+('long', '0f5264038205edfb1ac05fbb0e8c5e94', 'sinhvien', 'Lê Dương', 'Long', 'thuydieu@gmail.com', '09/04/1990', 0),
+('luyen', 'e379aad3a4c0c42b046e0bf56418f84f', 'sinhvien', 'Phạm Thị ', 'Luyến', 'nguyentandien@gmail.com', '09/05/1990', 0),
+('nghia', '9e87373408a6cd425ae9b19bf870d893', 'sinhvien', 'Trương Công ', 'Nghĩa', 'thuydieu@gmail.com', '09/06/1990', 0),
+('ngo', '503df5ff92a0620d57b99bd878c4444d', 'sinhvien', 'Lê Thị', 'Ngộ', 'nguyentandien@gmail.com', '09/07/1990', 0),
+('ngochieu', '8a6d289d480e81242711e0c9372be882', 'sinhvien', 'Dương Thị Ngọc ', 'Hiếu', 'nguyentandien@gmail.com', '05/02/1990', 0),
+('ngocvu', '489d1b48ef52bd78170733158eb653a4', 'sinhvien', 'Hồ Ngọc', 'Vũ', 'thuydieu@gmail.com', '06/05/1990', 0),
+('phan', 'abba8340466a1b7ddc56c287821923af', 'sinhvien', 'Nguyễn Thị Hồng', 'Phấn', 'thuydieu@gmail.com', '02/12/1990', 0),
+('phap', '29cbdcbd7cd59b31200d56e8d8ede311', 'sinhvien', 'Trần Anh', 'Ph', 'nguyentandien@gmail.com', '05/02/1990', 0),
+('phuong', '60c9312821b0d1eb614810a21f159147', 'sinhvien', 'Phan Xu', 'Phương', 'thuydieu@gmail.com', '06/05/1990', 0),
+('quang', '2b10351253eed030812674e8aa18a5ab', 'sinhvien', 'Trần Văn ', 'Quang', 'nguyentandien@gmail.com', '09/04/1990', 0),
+('quangthanh', '492c77cc31893853b2dc314fa964d522', 'sinhvien', 'L', 'Thanh', 'nguyentandien@gmail.com', '02/12/1990', 0),
+('son', '498d3c6bfa033f6dc1be4fcc3c370aa7', 'sinhvien', 'Đỗ Duy ', 'Sơn', 'thuydieu@gmail.com', '09/05/1990', 0),
+('tanthanh', '3a0b82dfcec7ab9e798e565fb5fba06a', 'sinhvien', 'Đồng Tấn', 'Thanh', 'thuydieu@gmail.com', '09/07/1990', 0),
+('tay', '4cdbd8808a5f3366d00df62af8673717', 'sinhvien', 'Huỳnh', 'T', 'nguyentandien@gmail.com', '09/06/1990', 0),
+('thanhvu', '4b8755d8a69fb91f9dbc48d46ce7910b', 'sinhvien', 'Lương Thành ', 'Vũ', 'nguyentandien@gmail.com', '09/04/1990', 0),
+('thilinh', 'e0ea16d9b98074af3bb5d46272996409', 'sinhvien', 'Huỳnh Thị ', 'Linh', 'thuydieu@gmail.com', '05/02/1990', 0),
+('thong', '24fe6057396bec79d2638615b12eb989', 'sinhvien', 'L', 'Thống', 'thuydieu@gmail.com', '05/02/1990', 0),
+('tinh', '802df3c585cfbaf52752a907665bc12f', 'sinhvien', 'Trần Thị', 'T', 'nguyentandien@gmail.com', '06/05/1990', 0),
+('tra', 'cfac4e0dc47d98414cf373a2f09d28a1', 'sinhvien', 'Nguyễn Văn', 'Tr', 'thuydieu@gmail.com', '09/04/1990', 0),
+('trung', 'c2d8730c4cdd662573b0214a0183bf98', 'sinhvien', 'Đỗ Tấn', 'Trung', 'nguyentandien@gmail.com', '09/05/1990', 0),
+('tuan', 'd6b8cc42803ea100735c719f1d7f5e11', 'sinhvien', 'Nguyễn Lê', 'Tuấn', 'thuydieu@gmail.com', '09/06/1990', 0),
+('tuong', '04b379216d130e1f29d4ef66d899f741', 'sinhvien', 'Lâm Văn ', 'Tưởng', 'nguyentandien@gmail.com', '09/07/1990', 0),
+('vanhanh', 'f26b42d052a17778feffe61e4e961c62', 'sinhvien', 'Nguyễn Văn', 'H', 'nguyentandien@gmail.com', '09/07/1990', 0),
+('vannghia', '8075549e8ea373ce1c113f1d8d346dc4', 'giangvien', 'Lương Văn ', 'Nghĩa', 'nghia.itq@gmail.com', '12/01/1968', 0),
+('vien', '8279e1962dc535634990970c54c31860', 'sinhvien', 'Nguyễn Quốc ', 'Vi', 'thuydieu@gmail.com', '02/12/1990', 0),
+('vinh', '4107eaebd361f3477b630f4ed7452418', 'sinhvien', 'Nguyễn Vũ', 'Vinh', 'nguyentandien@gmail.com', '05/02/1990', 0),
+('vulinh', '339c968316bb37503b8630431127359b', 'sinhvien', 'Nguyễn Vũ', 'Linh', 'nguyentandien@gmail.com', '06/05/1990', 0),
+('yen', '2599296bb9087b2fed9d0e353a8dcdf9', 'sinhvien', 'Trần Thị Bích', 'Yến', 'thuydieu@gmail.com', '09/05/1990', 0);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

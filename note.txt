@@ -1,0 +1,5 @@
+
+tieng viet cho mysql java http://vietunicode.sourceforge.net/howto/java/mysql.html
+my sql http://dev.mysql.com/downloads/mysql/5.1.html#downloads
+toi dang dung ban mysql-5.0.96-win32.zip
+
